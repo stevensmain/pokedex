@@ -28,7 +28,7 @@ function ActionButton({ onClick, children }: ActionButtonProps) {
   );
 }
 
-const PokemonCard = ({ pokemon, isAdded }: Props) => {
+function PokemonCard({ pokemon, isAdded }: Props) {
   const dispatch = useAppDispatch();
 
   const handleAdd = () => dispatch(addToCombatList(pokemon));
@@ -37,7 +37,10 @@ const PokemonCard = ({ pokemon, isAdded }: Props) => {
 
   return (
     <div className="group relative rounded-md border-2 border-slate-200 bg-slate-100 bg-opacity-40 p-2 hover:border-slate-300 hover:bg-opacity-75 dark:border-slate-800 dark:bg-slate-900 dark:bg-opacity-40 dark:hover:border-slate-600 dark:hover:bg-opacity-75">
-      <Link to={pokemon.name} className="flex flex-col w-full gap-2">
+      <Link
+        to={`/pokemon/${pokemon.name}`}
+        className="flex flex-col w-full gap-2"
+      >
         <img
           alt={pokemon.name}
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
@@ -62,6 +65,6 @@ const PokemonCard = ({ pokemon, isAdded }: Props) => {
       )}
     </div>
   );
-};
+}
 
 export default memo(PokemonCard);

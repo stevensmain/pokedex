@@ -13,7 +13,7 @@ export default function App() {
   return (
     <div className="relative flex min-h-screen flex-col bg-white text-black dark:bg-slate-950 dark:text-white">
       <div className="flex">
-        <main className="flex w-full flex-col gap-4 px-[5vw] pb-10 pt-10 sm:pl-5">
+        <main className="relative flex w-full flex-col gap-4 px-[5vw] pb-10 pt-10 sm:pl-5">
           <Routes>
             <Route path="*" element={<Navigate to={ROUTES.POKEMONS} />} />
             <Route path={ROUTES.POKEMONS} element={<PokemonsPage />} />
