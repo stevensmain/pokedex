@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 import PokemonsPage from "./pages/Pokemons";
 import PokemonDetailsPage from "./pages/PokemonDetails";
@@ -15,6 +15,7 @@ export default function App() {
       <div className="flex">
         <main className="flex w-full flex-col gap-4 px-[5vw] pb-10 pt-10 sm:pl-5">
           <Routes>
+            <Route path="*" element={<Navigate to={ROUTES.POKEMONS} />} />
             <Route path={ROUTES.POKEMONS} element={<PokemonsPage />} />
             <Route
               path={ROUTES.POKEMON_DETAILS}
