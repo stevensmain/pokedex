@@ -1,12 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { Pokemon } from "../types/pokemon";
-import { getPokemons } from "../feature/pokemonThunks";
+import { getPokemons } from "./pokemonThunks";
 
 export interface PokemonState {
   pokemons: Pokemon[];
   combatList: Pokemon[];
   searchTerm: string;
   status: "idle" | "loading" | "succeeded" | "failed";
+  error: string | null;
 }
 
 const initialState: PokemonState = {
@@ -14,6 +15,7 @@ const initialState: PokemonState = {
   combatList: [],
   status: "idle",
   searchTerm: "",
+  error: null,
 };
 
 const pokemonSlice = createSlice({
@@ -50,8 +52,9 @@ const pokemonSlice = createSlice({
         state.status = "succeeded";
         state.pokemons = action.payload;
       })
-      .addCase(getPokemons.rejected, (state) => {
+      .addCase(getPokemons.rejected, (state, action) => {
         state.status = "failed";
+        state.error = action.payload as string;
       });
   },
 });

@@ -8,7 +8,7 @@ import PokemonListSkeleton from "./PokemonListSkeleton";
 
 export default function PokemonList() {
   const dispatch = useAppDispatch();
-  const { pokemons, status, combatList, searchTerm } = useAppSelector(
+  const { pokemons, status, error, combatList, searchTerm } = useAppSelector(
     ({ pokemon }) => pokemon
   );
 
@@ -26,6 +26,7 @@ export default function PokemonList() {
   }, [dispatch, status]);
 
   if (status === "loading") return <PokemonListSkeleton />;
+  if (status === "failed") return <p>{error}</p>;
 
   return (
     <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

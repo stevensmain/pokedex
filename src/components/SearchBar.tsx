@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useAppDispatch } from "../hooks/useAppDispatch";
-import { setSearchTerm } from "../store/pokemonSlice";
+import { setSearchTerm } from "../feature/pokemonSlice";
 import { SearchIcon } from "./Icons";
 
 export default function SearchBar() {

@@ -2,7 +2,7 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 
 import { useAppDispatch } from "../hooks/useAppDispatch";
-import { addToCombatList, removeFromCombatList } from "../store/pokemonSlice";
+import { addToCombatList, removeFromCombatList } from "../feature/pokemonSlice";
 import { AddIcon, RemoveIcon } from "./Icons";
 import type { Pokemon } from "../types/pokemon";
 
